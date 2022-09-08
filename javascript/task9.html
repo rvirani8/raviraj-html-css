@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <script>
+        function countryFunction() {
+            var countrySelect = document.getElementById("country").value;
+            document.getElementById(countrySelect).style.display = "block";
+        }
+        function stateFunction() {
+            var stateSelect = document.getElementById("state").value;
+            document.getElementById(stateSelect).style.display = "block";       
+        }
+        
+    </script>  
+</head>
+<body>
+    
+    <label for="country">country:</label>
+    <select name="country" id="country" onchange="countryFunction()">
+        <option value="" selected disabled>--select country --</option>
+        <option value="india">india</option>
+        <option value="usa" >usa</option>
+        <option value="canada">canada</option>
+    </select>
+
+    <label for="state">state:</label>
+    <select name="state" id="state" onchange="stateFunction()">
+        <option value="" selected disabled>--select state --</option>
+        <optgroup label="india" id="india">
+            <option value="gujarat">gujarat</option>
+            <option value="maharastra">maharastra</option>
+            <option value="delhi">delhi</option>
+        </optgroup>
+        <optgroup label="usa" id="usa">
+            <option value="newyork">new york</option>
+            <option value="florida">florida</option>
+            <option value="chicago">chicago</option>
+        </optgroup>
+        <optgroup label="canada" id="canada">
+            <option value="toronto">toronto</option>
+            <option value="windsor">windsor</option>
+        </optgroup>
+    </select>
+    
+
+    <label for="city">city:</label>
+    <select name="city" id="city">
+        <option value="" selected disabled>--select city --</option>
+        <optgroup label="gujarat" id="gujarat">
+            <option value="surat">surat</option>
+            <option value="ahemadabad">ahemadabad</option>
+            <option value="rajkot">rajkot</option>
+            <option value="jamnagar">jamnagar</option>
+        </optgroup>
+        <optgroup label="maharastra" id="maharastra">
+            <option value="mumbai">mumbai</option>
+            <option value="pune">pune</option>
+        </optgroup>
+        <optgroup label="newyork" id="newyork">
+            <option value="newcity">newcity</option>
+            <option value="yorkcity">yorkcity</option>
+        </optgroup>
+        <optgroup label="toronto" id="toronto">
+            <option value="niagara">niagara</option>
+            <option value="cambridge">cambridge</option>
+        </optgroup>
+    </select>
+
+    <style>
+        #india,#usa,#canada,#gujarat,#maharastra,#newyork,#toronto{
+            display: none;
+        }
+    </style>
+    
+</body>
+</html>

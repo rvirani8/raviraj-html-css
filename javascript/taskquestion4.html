@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <script>
+        class person{
+            constructor(name,email,contact){
+                this.name = name;
+                this.email = email;
+                this.contact = contact;
+            }
+            show(){
+                return this.name + " " + this.email + " " + this.contact + "<br>";
+            }
+        }        
+        function myFunction() {
+                var name = document.getElementById('Name').value;
+                var email = document.getElementById('email').value;
+                var contact = document.getElementById('contact').value;
+                document.forms["myForm"].reset();
+                
+                var details = new person(name,email,contact); 
+                document.getElementById('demo').innerHTML += details.show();
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" id="myForm" onsubmit="">
+        <div class="main">
+            <div>
+                <h2>delay Form </h2>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="Name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Name" id="Name" placeholder="Enter your name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Email">Email:</label>
+                    </td>
+                    <td>
+                        <input type="email" name="Email" id="email" placeholder="Enter your Email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact">contact No.:</label>
+                    </td>
+                    <td>
+                        <input type="tel" name="contact" id="contact" placeholder="Enter Contact No.">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="submit" onclick="setTimeout(myFunction,5000)">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <p id="demo"></p>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            text-align: center;
+            border: 2px solid black;
+            width: 400px;
+            height: 200px;
+        }
+
+        div {
+            margin: 20px;
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+
+</body>
+
+</html>
+
+<!-- function findData() {
+    const inputValue = document.getElementById('searchInfo').value;
+    const upperData = inputValue.toUpperCase();
+    const tableData = document.getElementById("tableform");
+    const tr = tableData.getElementsByTagName('tr');
+    for (var i = 0; i < tr.length; i++) {
+        tr[i].style.display = "none";
+        const td = tr[i].getElementsByTagName("td");
+        for (var j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(upperData) > -1) {
+                tr[i].style.display = "";
+            }
+        }
+    }
+} -->

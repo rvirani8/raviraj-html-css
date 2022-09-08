@@ -1,0 +1,49 @@
+1>color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+o = ["th","st","nd","rd"]
+Write a JavaScript program to display the colors in the following way :
+"1st choice is Blue ."
+"2nd choice is Green."
+"3rd choice is Red."
+
+2> i/p:- <p><strong><em>Js Practices</em></strong></p>
+ o/p:- Js Practices
+
+3>make a function
+i/p:- 'cat'
+o/p:- c,ca,cat,a,at,t
+
+
+4>give me longest country name
+i/p: ["Australia", "Germany", "United States of America"]
+o/p:- United States of America
+
+5> display pattern
+			1
+		2		2
+	3		3		3
+4		4		4		4
+
+6)
+I/p: [{'fname': 'shivani','lname':'savani'},10, [15, 'aa', 'pqr'], 'zzz']
+Output : ['shivani','savani', 10, 15, 'aa', 'pqr', 'zzz']
+o/p 2:- ['shivani','savani', '10', '15', 'aa', 'pqr', 'zzz']
+
+7)I/P:-  Fibonacci numbers
+o/p:- 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, . . 
+
+8)sort
+i/p :-[34,7,23,32,{5, 62}, [13 , 2, 25]]
+output : [2, 5, 7,13 23,25, 32, 34, 62]
+
+9) take 3 dropdown and make demo of country, state, city
+
+10) take checkbox with print value
+if chhose first radio then print 1 then second chose print 1,2 and so on.... value display  
+
+11. make a function that returns a new object without provided properties
+Object: { a: 1, b: 2, c: 3 }
+I/p: b
+Output: { a: 1, c: 3 }
+
+12. Write a function that compare of two objects and return true or false
+> There can be any type of data in object like array, string, boolean

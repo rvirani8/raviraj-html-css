@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formajax</title>
+    <script>
+        let name, email, password, number;
+        var fc1,fc2,fc3,fc4;
+        function ajaxphpcall() {
+            var regName = /^[a-zA-Z]+$/;
+            name = document.getElementById('Name').value;
+            if (name == '') {
+                printError("nameErr", "Please enter name");
+            } else {
+                fc1 = name.match(regName);
+                if (!fc1) {
+                    printError("nameErr", "Please enter a valid name");
+                } else {
+                    printError("nameErr", "");
+                }
+            }
+
+            var regemail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            email = document.getElementById('email').value;
+            if (email == '') {
+                printError("emailErr", "Please enter email address");
+            } else {
+                fc2 =email.match(regemail); 
+                if (!fc2) {
+                    printError("emailErr", "Please enter a valid email address");
+                } else {
+                    printError("emailErr", "");
+                }
+            }
+
+            var regpass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+            password = document.getElementById('password').value;
+            if (password == '') {
+                printError("pwErr", "Please enter password");
+            } else {
+                fc3 = password.match(regpass);
+                if (!fc3) {
+                    printError("pwErr", "Please enter a correct password");
+                } else {
+                    printError("pwErr", "");
+                }
+            }
+
+            var regnum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            number = document.getElementById('contact').value;
+            if (number == '') {
+                printError("noErr", "Please enter number");
+            } else {
+                fc4 = number.match(regnum);
+                if (!fc4) {
+                    printError("noErr", "Please enter a correct number");
+                } else {
+                    printError("noErr", "");
+                }
+            }
+            let fc = fc1 && fc2 && fc3 && fc4;
+
+            if (fc) {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                  console.log(this.responseText);
+                }
+                const form = document.getElementById("myForm")
+                const data = new FormData(form);
+                xhttp.open("POST", "formajax.php");
+                xhttp.send(data);
+                document.forms["myForm"].reset();
+            } 
+        }
+        function printError(id, msg) {
+            document.getElementById(id).innerHTML = msg;
+            document.getElementById(id).style.color = "red";
+        }
+    </script>
+</head>
+
+<body>
+    <form id="myForm">
+        <div class="main">
+            <div>
+                <h2>Form Validation</h2>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="Name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Name" id="Name" placeholder="Enter your name">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="error" id="nameErr"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="Email">Email:</label>
+                    </td>
+                    <td>
+                        <input type="email" name="Email" id="email" placeholder="Enter your Email">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="error" id="emailErr"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Password">Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" name="Password" id="password" placeholder="Enter your Password">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="error" id="pwErr"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact">contact No.:</label>
+                    </td>
+                    <td>
+                        <input type="tel" name="contact" id="contact" placeholder="Enter Contact No.">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="error" id="noErr"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="submit" onclick="ajaxphpcall()">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            text-align: center;
+            border: 2px solid black;
+            width: 500px;
+        }
+
+        div {
+            margin: 20px;
+        }
+
+        p {
+            display: none;
+            color: red;
+        }
+    </style>
+</body>
+
+</html>

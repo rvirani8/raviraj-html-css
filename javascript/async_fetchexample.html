@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <script>
+        async function testAll() {
+            const getValue = document.getElementById('catchData').value;
+            let res;
+            let url = 'https://dummyjson.com/products';
+            if (getValue != '') {
+                url += '/search?q=' + getValue;
+            }
+            res = await fetch(url);
+            const data = await res.json();
+            console.log(data);
+            show(data);
+        }
+        function show(data) {
+            let searchData = '';
+            for (let x of data.products) {
+                searchData += ` 
+                        <div class="row g-4">
+                            <div class="col sub">
+                                <img src="${x.images[0]}" class="card-img-top" width="20%" alt="">
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <p class="card-text">${x.id}</p>
+                                        <h5 class="card-title">${x.title}</h5>
+                                        <p class="card-text">${x.description}</p>
+                                        <p class="card-text">${x.price}</p>
+                                        <p class="card-text">${x.discountPercentage}</p>
+                                        <p class="card-text">${x.rating}</p>
+                                        <p class="card-text">${x.stock}</p>
+                                        <p class="card-text">${x.brand}</p>
+                                        <p class="card-text">${x.category}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+            }
+            document.getElementById("infoSearch").innerHTML = searchData;
+        }
+    </script>
+</head>
+
+<body onload="testAll()">
+    <input type="search" value="" id="catchData" oninput="testAll()">
+    <br><br>
+    <table id="infoSearch"></table>
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #infoSearch {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    p {
+        margin: 10px 0px;
+    }
+
+    .sub {
+        margin: 10px;
+        height: 400px;
+        width: 360px;
+    }
+</style>
+
+</html>
+
+
+

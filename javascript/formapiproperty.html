@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunction() {
+            const inpObj = document.getElementById("id1");
+            console.log(inpObj.validity.customError);
+            const validityState = inpObj.validity;
+            if (validityState.valueMissing) {
+                document.getElementById("demo").innerHTML = inpObj.setCustomValidity('Thats yyy too high!');
+            } else if (validityState.rangeOverflow) {
+                document.getElementById("demo").innerHTML = inpObj.setCustomValidity('Thats too high!');
+            } else {
+                document.getElementById("demo").innerHTML = inpObj.setCustomValidity('');
+            }
+            inpObj.reportValidity();
+        }
+        function secondFunction() {
+            const inpObj = document.getElementById("id2");
+            const validityState = inpObj.validity;
+            if (validityState.patternMismatch) {
+                // alert()
+                document.getElementById("demo1").innerHTML = 'input correct patern';
+            } else {
+                document.getElementById("demo1").innerHTML = '';
+            }
+        }
+        function thirdFunction() {
+            const inpObj = document.getElementById("id3");
+            const validityState = inpObj.validity;
+            if (validityState.stepMismatch) {
+                document.getElementById("demo2").innerHTML = 'input correct step';
+            } else {
+                document.getElementById("demo2").innerHTML = '';
+            }
+        }
+        function fourthFunction() {
+            const inpObj = document.getElementById("id4");
+            const validityState = inpObj.validity;
+            if (validityState.tooLong) {
+                document.getElementById("demo3").innerHTML = 'input toolong';
+                alert()
+            } else {
+                document.getElementById("demo3").innerHTML = '';
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>JavaScript Validation</h2>
+
+    <p>Enter a number and click OK:</p>
+
+    <input id="id1" type="number" max="100">
+    <button onclick="myFunction()">OK</button>
+
+    <p>If the number is greater than 100 (the input's max attribute), an error message will be displayed.</p>
+
+    <p id="demo"></p>
+    <input type="tel" name="tel1" id="id2" pattern="[0-9]{3}" >
+    <button onclick="secondFunction()">OK pattern</button>
+    <p id="demo1"></p>
+
+    <input type="number" id="id3" min="20" max="40" step="2" required >
+    <button onclick="thirdFunction()">OK step</button>
+    <p id="demo2"></p>
+
+    <input id="id4" type="text" maxlength="5">
+    <button onclick="fourthFunction()">OK toolong</button>
+    <p id="demo3"></p>
+</body>
+
+
+</html>

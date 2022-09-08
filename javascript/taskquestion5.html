@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <script>
+        var data = [];
+        var obj = {}
+        var x = 0;
+        function myFunction() {
+            Name = document.getElementById('Name').value;
+            email = document.getElementById('email').value;
+            contact = document.getElementById('contact').value;
+            document.forms["myForm"].reset();
+            obj[x] = {
+                oname: Name,
+                oemail: email,
+                ocontact: contact
+            }
+            data.push(obj[x]);
+            document.getElementById("tableform").innerHTML += `<tr><td>${Name}</td><td>${email}</td><td>${contact}</td></tr>`;
+            // console.log(data);
+            // console.log(typeof data)
+        }
+        function findData(y) {
+            const filterData = data.filter(element => {
+                for (const value of Object.values(element)) {
+                    if (value.toLowerCase().includes(y.value.toLowerCase())) return true;
+                }
+            });
+            let z = '';
+            for (var i=0;i<filterData.length;i++) {
+                 z += `<tr><td>${filterData[i].oname}</td><td>${filterData[i].oemail}</td><td>${filterData[i].ocontact}</td></tr>`;
+            }
+            document.getElementById("tableform").innerHTML = z;
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="" id="myForm" onsubmit="">
+        <div class="main">
+            <div>
+                <h2>Form to table</h2>
+            </div>
+            <div>
+                <label for="Name">Name:</label>
+                <input type="text" name="Name" id="Name" placeholder="Enter your name">
+            </div>
+            <div>
+                <label for="Email">Email:</label>
+                <input type="email" name="Email" id="email" placeholder="Enter your Email">
+            </div>
+            <div>
+                <label for="contact">contact No.:</label>
+                <input type="tel" name="contact" id="contact" placeholder="Enter Contact No.">
+            </div>
+            <div>
+                <input type="button" value="submit" onclick="myFunction()">
+            </div>
+        </div>
+    </form>
+    <div id="searchData">
+        <input type="text" id="searchInfo" onkeyup="findData(this)">
+    </div>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact No</th>
+        </thead>
+        <tbody id="tableform">
+        </tbody>
+    </table>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            text-align: center;
+            border: 2px solid black;
+            width: 400px;
+            height: 200px;
+        }
+
+        div {
+            margin: 10px;
+        }
+
+        th,
+        td {
+            padding: 0px 40px;
+        }
+
+        #searchData {
+            margin: 10px 120px;
+        }
+    </style>
+</body>
+
+</html>

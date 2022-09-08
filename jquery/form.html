@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('form').submit(function(){
+
+                const regName = /^[a-zA-Z]+$/ ;
+                const name = $("#Name").val();
+                if(!name.match(regName)){
+                    alert("please enter correct name");
+                    $("#Name").focus();
+                    return false;
+                }
+
+                const regemail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                const email = $("#Email").val();
+                if(!email.match(regemail)){
+                    alert("please enter correct email");
+                    $("#Email").focus();
+                    return false;
+                }
+
+                const regpass = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+                const pass = $("#password").val();
+                if(!pass.match(regpass)){
+                    alert("please enter correct password");
+                    $("#password").focus();
+                    return false;
+                }
+
+                const regnum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                const num = $("#contact").val();
+                if(!num.match(regnum)){
+                    alert("please enter correct number");
+                    $("#contact").focus();
+                    return false;
+                }
+
+                const genM = $("#male")[0].checked;
+                const genF = $("#female")[0].checked;
+                if(genM == false && genF == false){
+                    alert("please choice any one gender");
+                    $('#male')[0].focus();
+                    return false;
+                }
+
+                const cricket= $('#cricket')[0].checked;
+                const chess= $('#chess')[0].checked;
+                const hocky= $('#hocky')[0].checked;
+                const swimming= $('#swimming')[0].checked;
+                if(cricket == false && chess == false && hocky == false && swimming == false){
+                    alert("please select any one hobby");
+                    return false;
+                }
+
+                const sel = $('#city').val();
+                if(!sel){
+                    alert("select city");
+                    return false; 
+                }
+                
+           });
+        });
+
+    </script>
+</head>
+<body>
+    <form action="">
+        <div class="main">
+            <div>
+                <h2>Form Validation</h2>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="Name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="Name" id="Name" placeholder="Enter your name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Email">Email:</label>
+                    </td>
+                    <td>
+                        <input type="email" name="Email" id="Email" placeholder="Enter your Email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" name="password" id="password" placeholder="Enter your Password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact">contact No.:</label>
+                    </td>
+                    <td>
+                        <input type="tel" name="contact" id="contact" placeholder="Enter Contact No.">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="gender">Gender:</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="gender" value="male" id="male">
+                        <label for="male">Male</label>               
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="hobbies">Hobbies:</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="cricket" class="hobbies" id="cricket">
+                        <label for="cricket">cricket</label>
+                        <input type="checkbox" name="chess" class="hobbies" id="chess">
+                        <label for="chess">chess</label>             
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hocky" class="hobbies" id="hocky">
+                        <label for="hocky">hocky</label>
+                        <input type="checkbox" name="swimming" class="hobbies" id="swimming">
+                        <label for="swimming">swimming</label> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="city">City:</label>
+                    </td>
+                    <td>
+                        <select name="city" id="city" >
+                            <option value="" selected disabled>--select city--</option>
+                            <option value="surat">surat</option>
+                            <option value="ahemadabad">ahemadabad</option>
+                            <option value="rajkot">rajkot</option>
+                            <option value="vadodara">vadodara</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <style>
+        .main{
+            text-align: center;
+            border: 2px solid black;
+            width: 500px;
+        }
+        div{
+            margin: 20px;
+        }
+        td{
+            margin: 20px;
+        }
+    </style>
+</body>
+</html>

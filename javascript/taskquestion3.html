@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function getData() {
+            var inputValue = await document.getElementById('searchData').value;
+            var li = document.getElementsByTagName('li');
+            for (var i = 0; i < li.length; i++) {
+                var a = li[i].getElementsByTagName("a")[0];
+                var txtValue = a.textContent || a.innerText;
+                if ( txtValue.indexOf(inputValue) > -1 ) {
+                    li[i].style.display = "block";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <input type="search" id="searchData" placeholder="search here...">
+        <button id="search" onclick="getData();">search</button>
+    </div>
+    <div id="main" align="center">
+        <li class="phone">
+            <a href="#">phone</a><br>
+            <span>brand:iphone</span><br>
+            <span>rating:4.6</span><br>
+            <span>price:99000</span>
+        </li>
+        <li class="watch">
+            <span>brand:titan</span><br>
+            <span>rating:4.7</span><br>
+            <span>price:5000</span><br>
+            <a href="#">watch</a>
+
+        </li>
+        <li class="phone">
+            <a href="#">phone</a><br>
+            <span>brand:samsung</span><br>
+            <span>rating:4.7</span><br>
+            <span>price:19000</span>
+        </li>
+        <li class="watch">
+            <a href="#">watch</a><br>
+            <span>brand:rolex</span><br>
+            <span>rating:4.8</span><br>
+            <span>price:15000</span>
+        </li>
+        <li class="laptop">
+            <a href="#">laptop</a><br>
+            <span>brand:sony</span><br>
+            <span>rating:4.3</span><br>
+            <span>price:35000</span>
+        </li>
+        <li class="phone">
+            <a href="#">phone</a><br>
+            <span>brand:MI</span><br>
+            <span>rating:4.1</span><br>
+            <span>price:9000</span>
+        </li>
+        <li class="laptop">
+            <a href="#">laptop</a><br>
+            <span>brand:HP</span><br>
+            <span>rating:4.5</span><br>
+            <span>price:38000</span>
+        </li>
+        <li class="watch">
+            <a href="#">watch</a><br>
+            <span>brand:fastrack</span><br>
+            <span>rating:4.5</span><br>
+            <span>price:1800</span>
+        </li>
+        <li class="phone">
+            <a href="#">phone</a><br>
+            <span>brand:POCO</span><br>
+            <span>rating:4.5</span><br>
+            <span>price:15000</span>
+        </li>
+        <li class="laptop">
+            <a href="#">laptop</a><br>
+            <span>brand:Dell</span><br>
+            <span>rating:4.6</span><br>
+            <span>price:40000</span>
+        </li>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #searchData {
+            margin: 20px;
+            width: 300px;
+            height: 50px;
+        }
+
+        li {
+            height: 200px;
+            width: calc(20% - 20px);
+            border: 0px solid;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+        }
+
+        span {
+            margin-bottom: 5px;
+        }
+
+        #main {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</body>
+
+</html>

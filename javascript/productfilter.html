@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function getData() {
+            var inputValue = await document.getElementById('searchData').value;
+            var li = document.getElementsByTagName('li');
+            for (var i = 0; i < li.length; i++) {
+                var a = li[i].getElementsByTagName("a")[0];
+                var txtValue = a.textContent || a.innerText;
+                if (txtValue.indexOf(inputValue) > -1) {
+                    li[i].style.display = "block";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <input type="search" name="" id="searchData" placeholder="search here...">
+        <button id="search" onclick="getData();">search</button>
+    </div>
+    <div id="main" align="center">
+        <li><a href="#">phone</a></li>
+        <li><a href="#">watch</a></li>
+        <li><a href="#">phone</a></li>
+        <li><a href="#">watch</a></li>
+        <li><a href="#">laptop</a></li>
+        <li><a href="#">phone</a></li>
+        <li><a href="#">laptop</a></li>
+        <li><a href="#">watch</a></li>
+        <li><a href="#">phone</a></li>
+        <li><a href="#">laptop</a></li>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #searchData {
+            margin: 20px;
+            width: 300px;
+            height: 50px;
+        }
+        li{
+            height: 200px;
+            width: calc(20% - 20px);
+            border: 0px solid;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            /* display: none; */
+        }
+
+        .show {
+            display: block;
+        }
+
+        #main {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</body>
+
+</html>

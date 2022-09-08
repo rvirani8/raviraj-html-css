@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $(".calc").click(function () {
+                $("#result").val($("#result").val() + $(this).val());
+           });
+           $(".lastdigit").click(function () {
+                let x = $("#result").val();
+                $("#result").val(x.slice(0,x.length-1));
+           });
+           $(".equal").click(function () {
+                $("#result").val(eval($("#result").val()));
+           });
+           $(".resetscreen").click(function () {
+                $("#result").val('');
+           });
+        });
+
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="result">
+
+    <div class="calculator">
+        <input type="button" class="calc" value="7">
+        <input type="button" class="calc" value="8">
+        <input type="button" class="calc" value="9">
+        <input type="button" class="calc" value="+">
+
+        <input type="button" class="calc" value="4">
+        <input type="button" class="calc" value="5">
+        <input type="button" class="calc" value="6">
+        <input type="button" class="calc" value="-">
+
+        <input type="button" class="calc" value="1">
+        <input type="button" class="calc" value="2">
+        <input type="button" class="calc" value="3">
+        <input type="button" class="calc" value="*">
+
+        <input type="button" class="lastdigit" value="ce">
+        <input type="button" class="calc" value="0">
+        <input type="button" class="resetscreen" value="C">
+        <input type="button" class="calc" value="/"> 
+
+        <input type="button" class="equal" value="=">
+
+    </div>
+
+    <style>
+        #result{
+            width: 450px;
+        }
+        .equal{
+            width: 460px;
+        }
+        input{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+        .calculator{
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color: red; */
+            width: 500px;
+            height: 500px;
+            
+        }
+        
+    </style>
+</body>
+</html>

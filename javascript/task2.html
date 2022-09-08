@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script>
+        function gettext() {
+            let text = document.getElementById("myList").innerText;
+            document.getElementById("demo").innerHTML = text;
+        }
+        
+    </script>
+</head>
+<body>
+    
+    <div id="myList" onclick="gettext()">
+        <p>
+            <strong>
+                abcdefghijklmnopqrstuvwxyz
+            </strong>
+        </p>
+    </div>
+    <p>The text content of the ul element is:</p>
+    <p id="demo"></p>
+</body>
+</html>

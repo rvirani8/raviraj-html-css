@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var p=0,p1=0,p2=0,p3=0;
+        
+        function sum() {
+            p=document.getElementById('display').value;
+            document.getElementById('display').value = '';
+        }
+        function minus() {
+            p1=document.getElementById('display').value;
+            document.getElementById('display').value = '';
+        }
+        function multi() {
+            p2=document.getElementById('display').value;
+            document.getElementById('display').value = '';
+        }
+        function divide() {
+            p3=document.getElementById('display').value;
+            document.getElementById('display').value = '';
+        }
+        function equal() {
+            e=document.getElementById('display').value;
+
+            if(p!=0){
+                equal = parseInt(p)+parseInt(e);
+                document.getElementById('display').value = equal ;
+            }
+            if(p1!=0){
+                equal = parseInt(p1)-parseInt(e);
+                document.getElementById('display').value = equal ;
+            }
+            if(p2!=0){
+                equal = parseInt(p2)*parseInt(e);
+                document.getElementById('display').value = equal ;
+            }
+            if(p3!=0){
+                equal = parseInt(p3)/parseInt(e);
+                document.getElementById('display').value = equal ;
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    
+    <input type="text" name="" id="display">
+
+    <div class="calculator">
+        <input type="button" value="7" onclick="display.value+=7">
+        <input type="button" value="8" onclick="display.value+=8">
+        <input type="button" value="9" onclick="display.value+=9">
+        <input type="button" value="+" onclick="sum();">
+
+        <input type="button" value="4" onclick="display.value+=4">
+        <input type="button" value="5" onclick="display.value+=5">
+        <input type="button" value="6" onclick="display.value+=6">
+        <input type="button" value="-" onclick="minus();">
+
+        <input type="button" value="1" onclick="display.value+=1">
+        <input type="button" value="2" onclick="display.value+=2">
+        <input type="button" value="3" onclick="display.value+=3">
+        <input type="button" value="*" onclick="multi();">
+
+        <input type="button" value="ce" onclick="display.value=0">
+        <input type="button" value="0" onclick="display.value+=0">
+        <input type="button" value="=" onclick="equal();">
+        <input type="button" value="/" onclick="divide();"> 
+    </div>
+
+    <style>
+        #display{
+            width: 450px;
+        }
+        input{
+            width: 100px;
+            height: 110px;
+            margin: 10px;
+        }
+        .calculator{
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color: red; */
+            width: 500px;
+            height: 500px;
+            
+        }
+        
+    </style>
+</body>
+</html>

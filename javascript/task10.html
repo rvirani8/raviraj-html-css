@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function printValue() {
+        var z = document.querySelector('input[type=radio][name=myChoice]:checked')
+        var result = "";
+        for(var i=1;i<=z.value;i++){
+             result += i ;
+        }
+        document.getElementById("demo").innerHTML = result ;
+        } 
+        
+    </script>
+</head>
+<body>
+  
+    
+    <div>
+        <input type="radio" id="first" name="myChoice" value="1" onclick="printValue()">
+        <label for="first">first</label>
+     
+        <input type="radio" id="second" name="myChoice" value="2" onclick="printValue()">
+        <label for="second">second</label>
+     
+        <input type="radio" id="third" name="myChoice" value="3" onclick="printValue()">
+        <label for="third">third</label>
+
+        <input type="radio" id="four" name="myChoice" value="4" onclick="printValue()">
+        <label for="four">four</label>
+    </div>
+        <p id="demo"></p>
+        
+</body>
+</html>

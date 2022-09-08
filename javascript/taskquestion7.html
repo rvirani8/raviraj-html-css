@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body id="main">
+    <script>
+        var btn = [];
+        var x = 0;
+        var main = document.getElementById("main");
+        btn[x] = document.createElement("button");
+        btn[x].innerHTML = "start";
+        main.appendChild(btn[x]);
+        btn[x].onclick = async function My() {
+            var linebreak = document.createElement('br');
+            main.appendChild(linebreak);
+            btn[x + 1] = document.createElement("button");
+            btn[x + 1].innerHTML = (x + 1);
+            main.appendChild(btn[x + 1]);
+            var pattern1 = document.createElement('span');
+            for (var i = 1; i <= x; i++) {
+                pattern1.innerHTML += (' ' + i);
+            }
+            main.appendChild(pattern1);
+            btn[x].disabled = true;
+            btn[x + 1].onclick = await My;
+            x++;
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</body>
+
+</html>
